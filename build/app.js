@@ -18,6 +18,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.resolve(__dirname, '../public')));
+/**
+ * 没有缓存
+ */
+app.use((req, res, next) => {
+    res.header('Cache-Control', 'no-cache');
+    next();
+});
 app.use('/', index);
 app.use('/users', users);
 // catch 404 and forward to error handler

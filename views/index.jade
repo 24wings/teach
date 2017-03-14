@@ -2,7 +2,20 @@ extends layout
 
 block content
   .header
-    nav.navbar.navbar-default.navbar-fixed-top
+    nav.navbar.navbar-default.navbar-fixed-top#navbar-collapse-div
       .container-fluid
-        .navbar-collapse.collapse
-        
+         a.navbar-brand 刺月无影的博客
+         a(href='https://www.github.com/24wings')
+            img.pull-right.fork-me(src='https://www.typescriptlang.org/assets/images/fork_me_ribbon.svg')
+         .navbar-collapse.collapse
+            ul.nav.navbar-nav
+              each category in categorys
+                li
+                  a(href='./'+category) #{category}
+         .navbar-header
+            button.navbar-toggle.pull-left.collapsed(data-target='#navbar-collapse-div')
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            

@@ -8,7 +8,7 @@ gulp.task("default", ["compile", "watch", "nodemon"]);
 
 
 gulp.task("watch", function () {
-    return gulp.watch("src/**/*.*", ["compile"]);
+    return gulp.watch(["src/**/*.*", 'views/**/*.jade'], ["compile"]);
 
 });
 
