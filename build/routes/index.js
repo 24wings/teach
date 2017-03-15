@@ -9,15 +9,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
-const index_1 = require("../models/index");
 var router = express.Router();
 /* GET home page. */
 router.get('/', function (req, res, next) {
     return __awaiter(this, void 0, void 0, function* () {
-        var players = yield index_1.playerModel.find().exec();
-        res.render('index', {
-            players: players
-        });
+        res.render('index');
     });
 });
 module.exports = router;

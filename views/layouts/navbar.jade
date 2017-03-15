@@ -1,0 +1,39 @@
+.header
+    nav.navbar.navbar-default.navbar-fixed-top#navbar-collapse-div
+        .container
+            a.navbar-brand 万维学院
+            a(href='https://www.github.com/24wings')
+                img.pull-right.fork-me(src='https://www.typescriptlang.org/assets/images/fork_me_ribbon.svg')
+            .navbar-collapse.collapse
+                ul.nav.navbar-nav.navbar-left
+                    li.active
+                        a 首页
+                ul.nav.navbar-nav.navbar-right
+                    //- 若没有登录
+                    if(!user)
+                        li
+                            a(href="/signin") 登录
+                        li 
+                            a(href='/signup') 注册
+                    else
+                        li.dropdown
+                            a#dropdownMenu1.btn.btn-clear.dropdown-toggle(data-toggle='dropdown')  #{user.email}
+                                span.caret
+                            ul.dropdown-menu
+                                li
+                                    a 
+                                        i.glyphicon.glyphicon-home 个人首页
+                                li
+                                    a.glyphicon.glyphicon-star 积分
+                                li
+                                    a.glyphicon.glyphicon-lock 考核
+                                             
+                        li  
+                            a(href="/person")  个人主页
+            
+            .navbar-header
+                button.navbar-toggle.pull-left.collapsed(data-target='#navbar-collapse-div')
+                    span.sr-only Toggle navigation
+                    span.icon-bar
+                    span.icon-bar
+                    span.icon-bar

@@ -1,0 +1,40 @@
+doctype html
+html
+  include layouts/head
+  body
+    include layouts/navbar
+    .container
+        .row.page-content.text-center    
+            h2 欢迎来到万维科技教务系统  #{visit}
+        .row
+            .col-sm-6.col-sm-offset-3.signin-form
+                .panel.panel-primary
+                    .panel-heading 欢迎来到万维,编程大师 
+                    .panel-body
+                        if  errorMsg
+                            .alert.alert-warning #{errorMsg}
+                        else 
+                            .alert
+                        form(action='/signup' ,method='post').form-horizontal
+                            .form-group
+                                label.control-label.col-sm-4.text-center 邮箱:
+                                .col-sm-8
+                                    input(type='email',name='email').form-control
+                            .form-group
+                                label.control-label.col-sm-4.text-center 密码:
+                                .col-sm-8
+                                    input(type='password',name='password').form-control
+                            button(type='submit').btn.btn-success.btn-lg.col-sm-10.col-sm-offset-1 登录
+                            a(href='/signin')
+                                .btn.btn-info.btn-lg.col-sm-10.col-sm-offset-1 已有账号?去登录                            
+                            
+                                
+
+
+    include layouts/foot
+    script
+        | $('.active').click(function(){
+        | alert('ok')
+        | });
+
+

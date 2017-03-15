@@ -1,18 +1,20 @@
 import mongoose = require('mongoose');
 
 
-var playerSchema = new mongoose.Schema({
-    name: String
+var userSchema = new mongoose.Schema({
+    password: { type: String, required: true },
+    email: { type: String, required: true }
 });
 
 
 /**
  * 数据实体层
  */
-interface IPlayer extends mongoose.Document {
-    name: String;
+interface IUser extends mongoose.Document {
+    email: String;
+    password: String;
 }
 
-var playerModel = mongoose.model<IPlayer>('Player', playerSchema);
+var userModel = mongoose.model<IUser>('User', userSchema);
 
-export { playerModel }
+export { userModel }
