@@ -10,14 +10,17 @@ var sass = require('gulp-sass');
 
 var tsProject = ts.createProject('tsconfig.json');
 
-gulp.task("default", ["compile", "watch", "nodemon", 'css', 'fonts']);
+gulp.task("default", ["compile", "watch", "watch-scss", "nodemon", 'css', 'fonts']);
 
 
 gulp.task("watch", function() {
-    gulp.watch(['./sass/**/*.scss', './sass/bootstrap-sass/assets/**/*.scss'], ['css', 'fonts']);
+
     return gulp.watch(["src/**/*.*", 'views/**/*.jade'], ["compile"]);
 
 });
+gulp.task("watch-scss", () => {
+    return gulp.watch(['./sass/**/*.scss', './sass/bootstrap-sass/assets/**/*.scss'], ['css', 'fonts']);
+})
 
 gulp.task("compile", function() {
     return gulp.src('src/**/*.ts')
