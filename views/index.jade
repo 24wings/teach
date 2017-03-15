@@ -9,13 +9,13 @@ block content
             img.pull-right.fork-me(src='https://www.typescriptlang.org/assets/images/fork_me_ribbon.svg')
          .navbar-collapse.collapse
             ul.nav.navbar-nav
-              each category in categorys
-                li
-                  a(href='./'+category) #{category}
+              each player in players
+                li.active
+                  a(href='./'+player.name) #{player.name}
          .navbar-header
             button.navbar-toggle.pull-left.collapsed(data-target='#navbar-collapse-div')
               span.sr-only Toggle navigation
               span.icon-bar
               span.icon-bar
               span.icon-bar
-            
+             
